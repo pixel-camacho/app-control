@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ebebeb;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+main{
+    width: 100%;
+    min-height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box-login{
+    width: 500px;
+    height: 680px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 5px 5px 15px rgba(150,150,150,.7);
+}
+.box-login .img{
+    width:30%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+    box-shadow: 0 0 7px #333;
+}
+.title{
+    font-weight: 500;
+    font-size: 2.2em;
+    width: 100%;
+    margin-top: 30px;
+    text-align: center;
+}
+form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+form label{
+    display: block;
+    padding: 9px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: left;
+}
+
+form input{
+    display: block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    background: #ebebeb;
+    font-size: 1rem;
+    color: #595959;
+    border-radius: 7px;
+}
+
+form .passwordlabel,
+form .passwordinput{
+    width: 100%;
+    display: flex;
+    justify-content: left;
+}
+
+form .passwordlabel label,
+form .passwordinput input{
+    display: block;
+    width: 48%;
+    padding: 15px 7px;
+}
+
+form .passwordinput input:nth-child(2){
+    margin-left: 15px;
+}
+
+form a{
+    display: inline-block;
+    text-decoration: none;
+    font-size: .9rem;
+    border-bottom: 2px solid transparent;
+    margin: 15px auto;
+    margin-left: 25%;
+}
+
+
+form input[type="submit"]{
+    display: block;
+    width: 70%;
+    background-color: #000;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.5em;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+
+
+/*animaciones*/
+
+form input[type="submit"]:hover{
+    transition: all .6s;
+    cursor: pointer;
+    background-color: #04AA6D;
+}
+
+form a:hover{
+    transition: all .5s linear;
+    border-bottom: 2px solid #04AA6D;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus{
+    transition: all .5s ease-in-out;
+    background: #d9d9d9;
+}

@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: gainsboro;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+}
+
+.dashboard {
+    width: 80%;
+    height: 100vh;
+    margin-left: 250px;
+    transition: width .5s linear;
+}
+
+.dashboard .title {
+    font-size: 2.5em;
+    font-weight: 500;
+    padding: 1rem 1.2rem;
+}
+
+.dashboard .container {
+    padding: 0 1.2rem;
+    box-sizing: border-box;
+}
+
+.dashboard .container .filter {
+    position: relative;
+    width: 30%;
+    padding-bottom: 1.5rem;
+}
+
+.dashboard .container .filter ul {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.dashboard .container .filter ul li {
+    width: 30%;
+    font-weight: 500;
+    font-size: 2em;
+    list-style: none;
+}
+
+.dashboard .container .filter ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+    line-height: 40px;
+    background: #fff;
+    text-align: center;
+    border-radius: 7px;
+}
+
+.separator {
+    width: 97%;
+    height: 6px;
+    margin: 0 auto;
+    background: gray;
+    border: none;
+}
+
+.add,
+.add1,
+.add2 {
+    position: fixed;
+    background: dodgerblue;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border-radius: 5px;
+    margin: 2rem;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(40, 40, 40, .8);
+}
+
+.add1 {
+    margin-bottom: 110px;
+    background: #cccccc;
+}
+
+.add2 {
+    margin-bottom: 190px;
+    background: #ff3333;
+}
+
+
+.contenedor-tarjetas {
+    display: flex;
+    height: 79vh;
+    flex-wrap: wrap;
+    margin: 7px;
+}
+
+/*CARDS */
+.card {
+    position: relative;
+    width: 270px;
+    height: 430px;
+    margin: 12px;
+    background: #fff;
+    border-radius: 10px;
+    transition: box-shadow .3s linear;
+    transition: .5s;
+}
+
+.card .eliminar {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.card img {
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+}
+
+.card h5 {
+    width: 100%;
+    font-size: .7rem;
+    text-align: center;
+    padding: 7px;
+}
+
+.card .especificaciones{
+    width: 90%;
+    margin: 10px auto;
+}
+
+.card .especificaciones label {
+    font-size: .9rem;
+    color: #595959;
+    text-align: center;
+    margin: 2px 0;
+}
+
+
+.card .especificaciones span {
+    display: inline-block;
+    width: 100%;
+    font-size: .8rem;
+    color: darkgrey;
+    text-align: center;
+    padding: 5px 0;
+    letter-spacing: .5px;
+}
+
+
+.card .botonera button {
+    display: block;
+    width: 70%;
+    font-size: .8rem;
+    color: white;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #333;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+
+
+/*HOVER*/
+.card:hover{
+    box-shadow: 5px 5px 15px rgba(90,90,90,.8);
+  }
+
+.dashboard .container .filter ul li a:hover{
+    background: #04AA6D;
+    color: whitesmoke;
+    transition: background .4s linear ;
+}
+
+/*media querys*/
+
+@media(max-width: 1160px){
+  
+    .dashboard{
+        margin-left: 80px;
+        transition: margin-left .5s linear;
+    }
+
+    .dashboard .container .filter ul li{
+        font-size: 1.7rem;
+    }
+
+
+}

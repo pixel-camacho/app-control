@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.profile{
+    width: 80%;
+    min-height: 100vh;
+    margin-left: 250px; 
+}
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-update{
+    width: 70%;
+    height: 70vh;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 5px 5px 15px rgba(150,150,150,.7);
+}
+.form-update .title{
+    padding: 15px;
+    width: 95%;
+    margin: 0 auto;
+    border-bottom: 2px solid rgba(150,150,150,.7);
+}
+
+
+
+/*MEDIA QUERY*/
+
+@media(max-width: 1160px){
+
+    .profile{
+        margin-left: 80px;
+        transition: margin-left .5s linear;
+    }
+}
