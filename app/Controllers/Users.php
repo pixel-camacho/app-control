@@ -49,8 +49,7 @@ class Users extends BaseController
 			    $this->setUserSession($user);
 				$equipos = $multifuncionales->findAll();
 
-				return redirect()->with('equipo',$equipos)
-				                 ->to('dashboard');
+				return redirect('dashboard');
 			}
 		}
 

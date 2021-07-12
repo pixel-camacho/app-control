@@ -25,7 +25,6 @@
     </div>
 
     <hr class="separator">
-
     <div class="contenedor-tarjetas" id="cards">
 
         <?php for($i = 0; $i < 5; $i++ ): ?>
@@ -85,8 +84,5 @@
             </div>
         </div>
         <?php endfor;?>
-
-        <button class="add" title="Agregar Multifuncional" id="addM"><i class="fa fa-print fa-2x"></i></button>
-        <button class="add1" title="Agregar Refaccion" id="addR"><i class="fa fa-cog fa-2x"></i></button>
-        <button class="add2" title="Agregar Tonner" id="addT"><i class="fa fa-home fa-2x"></i></button>
+        
     </div>

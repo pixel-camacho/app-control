@@ -21,7 +21,7 @@
             </a>
         </li>
         <li id="reportes">
-            <a href="dashboard/reporte" title="Reportes" class="<?= ($uri->getSegment(1) === 'report') ? 'active' : '' ?>">
+            <a href="/reports" title="Reportes" class="<?= ($uri->getSegment(1) === 'report') ? 'active' : '' ?>">
                 <span class="icon"><i class="fa fa-list-ul"></i></span>
                 <span class="title">Reportes</span>
             </a>

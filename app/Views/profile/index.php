@@ -3,9 +3,7 @@
 <div class="profile">
     <main>
         <div class="form-update">
-        <h1 class="title">Actualizar perfil de usuario</h1>
             <form action="Users/update" method="post">
-                <img src="assets/img/perfil.jpg" alt="imagen de perfil">
 
                 <label for="username">Username</label>
                 <input type="text" name="username" value="<?= session()->get('username') ?>">
@@ -19,6 +17,17 @@
                     <option value="user">User</option>
                     <option value="admin">Admin</option>
                 </select>
+                
+                <label for="photo">Imagen de perfil</label>
+                <input type="text" name="photo" id="photo">
+
+                <label for="password">Password</label>
+                <input type="password" name="password">
+
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" name="confirm_password">
+
+                <input type="submit" value="Actualizar" style="background: #333;">
             </form>
         </div>
     </main>

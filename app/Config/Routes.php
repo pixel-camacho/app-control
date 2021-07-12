@@ -35,6 +35,9 @@ $routes->setAutoRoute(true);
 $routes->match(['get','post'],'/', 'Users::index');
 $routes->match(['get','post'],'register', 'Users::register');
 $routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
+$routes->get('profile', 'Profile::index', ['filter' => 'auth']);
+$routes->get('reports', 'Reports::index', ['filter' => 'auth']);
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
