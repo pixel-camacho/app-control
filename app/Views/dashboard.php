@@ -3,48 +3,31 @@
 <div class="dashboard">
     <div class="container">
         <h2 class="title">Mis catalogos</h2>
-        <div class="filter">
-            <ul>
-                <li>
-                    <a href="#" title="Multifuncionales">
-                        <span class="icon"><i class="fa fa-print"></i></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="Refacciones">
-                        <span class="icon"> <i class="fa fa-wrench"></i></span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" title="Tonners">
-                        <span class="icon"><i class="fa fa-home"></i></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <?= $this->include('Componentes/filter') ?>
     </div>
 
     <hr class="separator">
     <div class="contenedor-tarjetas" id="cards">
 
-        <?php for($i = 0; $i < 5; $i++ ): ?>
+        <?php foreach($equipos as $equipo): ?>
         <div class="card" id="tarjeta">
             <a href="#" title="Eliminar" class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/printer.png" alt="imagen del elemento">
-            <h5>MULTIFUNCIONALES-MULTIFUNCIONALES</h5>
+            <h5><?= $equipo['marca'].' '.$equipo['modelo'] ?></h5>
             <div class="especificaciones">
                 <label>Cantidad</label>
-                <span id="cantidad">10</span>
+                <span id="cantidad"><?= $equipo['cantidad'] ?></span>
                 <label>Serie</label>
-                <span id="serie">734JSF546</span>
+                <span id="serie"><?= $equipo['serie'] ?></span>
             </div>
             <div class="botonera">
-                <button class="editar">
+                <button class="editar" >
                     Editar
                 </button>
             </div>
         </div>
-        <?php endfor; ?>
+        <?php endforeach; ?>
+
 
         <?php for($i = 0; $i < 5; $i++): ?>
         <div class="card" id="tarjeta">
@@ -84,5 +67,5 @@
             </div>
         </div>
         <?php endfor;?>
-        
+
     </div>

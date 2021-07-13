@@ -1,0 +1,42 @@
+.reportes{
+    width: 85%;
+    height: 100vh;
+    margin-left: 250px;
+    transition: width .5s linear;
+}
+.reportes .header{
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 1rem 1.5rem;
+}
+.reportes .fa{
+    display: block;
+    font-size: 2.8rem;
+    width: 30px;
+    text-align: center;
+}
+.reportes .title{
+    width: 100%;
+    font-size: 2.5em;
+    font-weight: 500;
+}
+.separador{
+    width: 98%;
+    height: 6px;
+    margin: 7px auto;
+    background: gray;
+    border: none;
+}
+
+
+/*MEDIA QUERY*/
+
+@media (max-width: 1160px){
+
+    .reportes{
+        margin-left: 80px;
+        transition: margin-left .5s linear;
+    }
+
+}

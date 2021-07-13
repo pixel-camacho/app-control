@@ -48,8 +48,12 @@ class Users extends BaseController
 				               ->first();
 			    $this->setUserSession($user);
 				$equipos = $multifuncionales->findAll();
+				$data['equipos'] = $equipos;
 
-				return redirect('dashboard');
+				echo view('layout/header',$data);
+				echo view('dashboard',$data);
+				echo view('layout/footer');
+				return;
 			}
 		}
 

@@ -12,5 +12,6 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/sidebar.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/dashboard.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/profile.css')?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/report.css')?>">
 </head>
 <body>
