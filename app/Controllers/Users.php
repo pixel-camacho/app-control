@@ -1,10 +1,6 @@
 <?php
-
 namespace App\Controllers;
 
-use App\Models\MultifuncionalModel;
-use App\Models\RefaccionModel;
-use App\Models\TonnerModel;
 use App\Models\UserModel;
 
 class Users extends BaseController
@@ -40,20 +36,11 @@ class Users extends BaseController
 				$data['validation'] = $this->validator;
 			}else{
 				$model = new UserModel();
-				$multifuncionales = new MultifuncionalModel();
-				$refacciones = new RefaccionModel();
-				$tonners = new TonnerModel();
-
 				$user  = $model->where('username',$this->request->getVar('username'))
 				               ->first();
 			    $this->setUserSession($user);
-				$equipos = $multifuncionales->findAll();
-				$data['equipos'] = $equipos;
-
-				echo view('layout/header',$data);
-				echo view('dashboard',$data);
-				echo view('layout/footer');
-				return;
+                
+				return redirect()->to('dashboard');
 			}
 		}
 

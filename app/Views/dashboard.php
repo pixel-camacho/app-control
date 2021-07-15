@@ -29,17 +29,17 @@
         <?php endforeach; ?>
 
 
-        <?php for($i = 0; $i < 5; $i++): ?>
+        <?php foreach($refacciones as $refaccione): ?>
         <div class="card" id="tarjeta">
             <a href="#" title="Eliminar" class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/refaccion.png" alt="imagen del elemento">
-            <h5>TAMBOR DE IMPRESORA</h5>
+            <h5><?= $refaccione['pieza'] ?></h5>
             <div class="especificaciones">
                 <label>Cantidad</label>
-                <span id="cantidad">5</span>
+                <span id="cantidad"><?= $refaccione['cantidad'] ?></span>
                 <br>
                 <label>Multifuncional</label>
-                <span id="multifuncional">BROTHER 56-GKJBH</span>
+                <span id="multifuncional"><?= $refaccione['multifuncional'] ?></span>
             </div>
             <div class="botonera">
                 <button class="editar">
@@ -47,18 +47,18 @@
                 </button>
             </div>
         </div>
-        <?php endfor;?>
+        <?php endforeach;?>
 
-        <?php for($i = 0; $i < 5; $i++): ?>
+        <?php foreach($tonners  as $tonner): ?>
         <div class="card" id="tarjeta">
             <a href="#" title="Eliminar" class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/tonner.png" alt="imagen del elemento">
-            <h5>TONNER LP2</h5>
+            <h5><?= $tonner['descripcion'] ?></h5>
             <div class="especificaciones">
                 <label style="margin-top: 10px;">Cantidad</label>
-                <span id="cantidad">50</span>
+                <span id="cantidad"><?= $tonner['cantidad'] ?></span>
                 <label>Multifuncional</label>
-                <span id="multifuncional" class="block">BROTHER 56-GKJBH</span>
+                <span id="multifuncional" class="block"><?= $tonner['multifuncional'] ?></span>
             </div>
             <div class="botonera">
                 <button class="editar">
@@ -66,6 +66,6 @@
                 </button>
             </div>
         </div>
-        <?php endfor;?>
+        <?php endforeach;?>
 
     </div>

@@ -1,19 +1,24 @@
 <?php
-
 namespace App\Models;
 
-use CodeIgniter\Model;
+use CodeIgniter\Database\ConnectionInterface;
 
-class TonnerModel extends Model
-{
-	protected $DBGroup              = 'default';
-	protected $table                = 'tonner';
-	protected $primaryKey           = 'idTonner';
-	protected $useAutoIncrement     = true;
-	protected $insertID             = 0;
-	protected $returnType           = 'array';
-	protected $useSoftDeletes       = false;
-	protected $protectFields        = true;
-	protected $allowedFields        = ['idMultifuncional','cantidad','status','descripcion'];
+class TonnerModel {
 
+    protected $db;
+
+    public function __construct(ConnectionInterface &$db)
+    {
+       $this->db =& $db;    
+    }
+
+    function getTonner(){
+
+        $builder = $this->db->table('tonner t');
+        $builder->select('t.idTonner ,t.descripcion,t.cantidad,t.status, concat(m.marca," ",m.modelo) as multifuncional');
+        $builder->join('multifuncional m','m.idMultifuncional = t.idMultifuncional');
+        $query = $builder->get()->getResultArray();
+
+        return $query;
+    }
 }
