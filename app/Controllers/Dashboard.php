@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\RefaccionesModel;
 use App\Models\TonnerModel;
+use DateTime;
 
 class Dashboard extends BaseController
 {
@@ -25,6 +26,39 @@ class Dashboard extends BaseController
 		echo view('layout/header',$data);
 		echo view('dashboard',$data);
 		echo view('layout/footer');
+	}
+
+	public function deleteitem(){
+        
+		$db = db_connect();
+		$catalogo = $this->request->getVar('catalogo');
+		$id = $this->request->getVar('id');
+		$data = ['status' => 0, 'fechaBaja' => date('Y-m-d')];
+
+		//Modelo
+		$multifuncionales = model('MultifuncionalModel');
+		$refacciones =  new RefaccionesModel($db);
+		$tonners     =  new TonnerModel($db); 
+                                                                
+		if($catalogo === 'multifuncional'){
+
+			$update = $multifuncionales->update($id,$data);
+			if(!$update) return; 
+			
+		}else if($catalogo === 'refaccion'){
+           
+			$update = $refacciones->deleteRefaccion($id,$data);
+			if(!$update) return;
+		
+		}else{
+
+			$update = $tonners->deleteTonner($id,$data);
+			if(!$update) return;
+		}
+
+		session()->setFlashdata('success','Elemento eliminado');
+		return redirect('dashboard');
+
 	}
 
 

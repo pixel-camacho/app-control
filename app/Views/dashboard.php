@@ -9,9 +9,16 @@
     <hr class="separator">
     <div class="contenedor-tarjetas" id="cards">
 
+        <?php if(session()->get('success')): ?>
+        <div class="success">
+            <?= session()->get('success') ?>
+        </div>
+        <?php endif;?>
+
         <?php foreach($equipos as $equipo): ?>
         <div class="card" id="tarjeta">
-            <a href="#" title="Eliminar" class="eliminar"><i class="fa fa-times close"></i></a>
+            <a href="dashboard/deleteitem?id=<?= $equipo['idMultifuncional'] ?>&&catalogo=multifuncional"
+                title="Eliminar" class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/printer.png" alt="imagen del elemento">
             <h5><?= $equipo['marca'].' '.$equipo['modelo'] ?></h5>
             <div class="especificaciones">
@@ -21,7 +28,7 @@
                 <span id="serie"><?= $equipo['serie'] ?></span>
             </div>
             <div class="botonera">
-                <button class="editar" >
+                <button class="editar">
                     Editar
                 </button>
             </div>
@@ -31,7 +38,8 @@
 
         <?php foreach($refacciones as $refaccione): ?>
         <div class="card" id="tarjeta">
-            <a href="#" title="Eliminar" class="eliminar"><i class="fa fa-times close"></i></a>
+            <a href="dashboard/deleteitem?id=<?= $refaccione['idRefaccion'] ?>&&catalogo=refaccion" title="Eliminar"
+                class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/refaccion.png" alt="imagen del elemento">
             <h5><?= $refaccione['pieza'] ?></h5>
             <div class="especificaciones">
@@ -51,7 +59,8 @@
 
         <?php foreach($tonners  as $tonner): ?>
         <div class="card" id="tarjeta">
-            <a href="#" title="Eliminar" class="eliminar"><i class="fa fa-times close"></i></a>
+            <a href="dashboard/deleteitem?id=<?= $tonner['idTonner'] ?>&&catalogo=tonner" title="Eliminar"
+                class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/tonner.png" alt="imagen del elemento">
             <h5><?= $tonner['descripcion'] ?></h5>
             <div class="especificaciones">
@@ -67,5 +76,11 @@
             </div>
         </div>
         <?php endforeach;?>
+
+        <?php if(isset($validation)): ?>
+        <div class="errors">
+            <?= $validation->listErrors() ?>
+        </div>
+        <?php endif; ?>
 
     </div>

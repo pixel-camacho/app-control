@@ -12,7 +12,7 @@
                 </li>
                 <li>
                     <a href="#" title="Tonners">
-                        <span class="icon"><i class="fa fa-home"></i></span>
+                        <span class="icon"><i class="fa fa-pencil"></i></span>
                     </a>
                 </li>
             </ul>
