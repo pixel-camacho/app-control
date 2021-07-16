@@ -12,6 +12,31 @@ class MultifuncionalModel extends Model
 	protected $returnType           = 'array';
 	protected $useSoftDeletes       = false;
 	protected $protectFields        = true;
-	protected $allowedFields        = ['marca','modelo','cantidad','seris','status','fechaBaja'];
+	protected $allowedFields        = ['marca','modelo','cantidad','serie','status','fechaBaja'];
+
+	protected $validationRules = [
+		'marca' => 'required',
+		'modelo' => 'required|is_unique[multifuncional.modelo]',
+		'cantidad' => 'required|is_natural',
+		'serie' => 'required|string',
+	];
+
+	protected $validationMessages = [
+		'marca' => [
+			'required' => 'Llenar campo de marca'
+		],
+		'modelo' => [
+			'required' => 'Llenar campo de modelo',
+			'is_unique' => 'Modelo ya existente'
+		],
+		'cantidad' => [
+			'required' => 'Llenar la cantidad',
+			'is_natural' => 'No es un numero valido'
+		],
+		'serie' => [
+			'required' => 'Serie vacia',
+			'string' => 'No es un formato aceptado'
+		]
+		];
 
 }

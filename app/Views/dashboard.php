@@ -1,9 +1,34 @@
 <?= $this->include('Componentes/sidebar') ?>
+<?= $this->include('Componentes/modal') ?>
+
+<div class="modal-multiple">
+    <div class="form-body">
+        <h2>Agregar Refaccione</h2>
+        <a href="" id="cerrar1" title="Cerrar">&times;</a>
+        <form action="dashboard/addElement" method="post">
+            <label for="pieza">Pieza</label>
+            <input type="text" name="pieza" id="pieza">
+
+            <label for="cantidad">Cantidad</label>
+            <input type="text" name="cantidad" id="cantidad">
+
+            <label for="multifuncional">Multifuncional</label>
+            <select name="multifuncional" id="multifuncional">
+                <option value=""> * Seleccion multifuncional</option>
+                <?php foreach($equipos as $equipo): ?>
+                    <?= "<option value= ".$equipo['idMultifuncional'].">".$equipo['marca'].' '.$equipo['modelo']."</option>" ?>
+                <?php endforeach;?>
+            </select>
+            <input type="submit" value="Agregar">
+        </form>
+    </div>
+</div>
 
 <div class="dashboard">
     <div class="container">
         <h2 class="title">Mis catalogos</h2>
         <?= $this->include('Componentes/filter') ?>
+        <?= $this->include('Componentes/search') ?>
     </div>
 
     <hr class="separator">
@@ -77,10 +102,10 @@
         </div>
         <?php endforeach;?>
 
-        <?php if(isset($validation)): ?>
+        <?php if(session()->get('errors')): ?>
         <div class="errors">
-            <?= $validation->listErrors() ?>
+            <?= session()->get('errors') ?>
         </div>
-        <?php endif; ?>
+        <?php endif;?>
 
     </div>

@@ -14,5 +14,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/profile.css')?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/report.css')?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/alert.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/modal.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/search.css') ?>">
 </head>
 <body>

@@ -9,10 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/login.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/alert.css') ?>">
-
-
 </head>
-
 <body>
 
 <?php if(session()->get('success')): ?>
@@ -42,13 +39,12 @@
         </div>
     </main>
 
-    <?php if(isset($validation)): ?>
+<?php if(isset($validation)): ?>
     <div class="errors">
         <?= $validation->listErrors() ?>
     </div>
-    <?php endif; ?>
+<?php endif; ?>
 
-    <script src="<?= base_url('assets/js/users.js') ?>"></script>
-    
+    <script src="<?= base_url('assets/js/users.js') ?>"></script>  
 </body>
 </html>

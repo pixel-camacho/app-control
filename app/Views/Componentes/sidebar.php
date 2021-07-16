@@ -4,7 +4,7 @@
      ?>
 
     <img src="<?=  session()->get('photo') ?>" alt="foto de perfil" class="perfil">
-    <label>BIENVENIDO</label>
+    <label class="bienvenida">BIENVENIDO</label>
     <span class="user"><?= session()->get('name') ?? 'USUARIO'; ?></span>
 
     <ul class="opciones">

@@ -4,7 +4,6 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\RefaccionesModel;
 use App\Models\TonnerModel;
-use DateTime;
 
 class Dashboard extends BaseController
 {
@@ -22,7 +21,6 @@ class Dashboard extends BaseController
 		$data['equipos'] = $multifuncionales->where('status',1)
 		                                    ->findAll();
 				
-
 		echo view('layout/header',$data);
 		echo view('dashboard',$data);
 		echo view('layout/footer');
@@ -33,32 +31,42 @@ class Dashboard extends BaseController
 		$db = db_connect();
 		$catalogo = $this->request->getVar('catalogo');
 		$id = $this->request->getVar('id');
-		$data = ['status' => 0, 'fechaBaja' => date('Y-m-d')];
+		$data = ['status' => 0, 'fechaBaja' => date('Y-m-d h:i:s')];
 
 		//Modelo
 		$multifuncionales = model('MultifuncionalModel');
 		$refacciones =  new RefaccionesModel($db);
-		$tonners     =  new TonnerModel($db); 
-                                                                
+		$tonners = new TonnerModel($db);
+	                                                            
 		if($catalogo === 'multifuncional'){
-
 			$update = $multifuncionales->update($id,$data);
-			if(!$update) return; 
-			
+			if(!$update) return;
+
 		}else if($catalogo === 'refaccion'){
-           
 			$update = $refacciones->deleteRefaccion($id,$data);
 			if(!$update) return;
 		
 		}else{
-
 			$update = $tonners->deleteTonner($id,$data);
 			if(!$update) return;
 		}
 
-		session()->setFlashdata('success','Elemento eliminado');
+		session()->setFlashdata('success','Elemento eliminado del inventario');
 		return redirect('dashboard');
+	}
 
+	public function addElement(){
+        
+		$equipo = model('MultifuncionalModel');
+
+	    $newData = $_POST;
+		$newData['status'] = 1;
+
+		 if($equipo->save($newData)){
+			 session()->setFlashdata('success','Equipo agregado al inventario');
+		 }
+
+		 return redirect('dashboard');
 	}
 
 
