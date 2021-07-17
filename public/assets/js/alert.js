@@ -9,3 +9,4 @@ function alertHidden(id){
     
     alertHidden('.errors');
     alertHidden('.success');
+    alertHidden('.validations');

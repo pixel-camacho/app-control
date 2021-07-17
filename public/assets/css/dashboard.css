@@ -5,31 +5,26 @@
     margin: 0;
     box-sizing: border-box;
 }
-
 body {
     background-color: gainsboro;
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
 }
-
 .dashboard {
     width: 80%;
     height: 100vh;
     margin-left: 250px;
     transition: width .5s linear;
 }
-
 .dashboard .title {
     font-size: 2.5em;
     font-weight: 500;
     padding: 1rem 1.2rem;
 }
-
 .dashboard .container {
     padding: 0 1.2rem;
     box-sizing: border-box;
 }
-
 /*FILTRO */
 .dashboard .container .filter {
     position: relative;

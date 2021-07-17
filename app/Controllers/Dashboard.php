@@ -62,11 +62,13 @@ class Dashboard extends BaseController
 	    $newData = $_POST;
 		$newData['status'] = 1;
 
-		 if($equipo->save($newData)){
-			 session()->setFlashdata('success','Equipo agregado al inventario');
-		 }
+		if($equipo->save($newData) === false){
+			session()->setFlashdata('errors',$equipo->errors());
+		}else{
+			session()->setFlashdata('success','Equipo agregado al inventario.');
+		}
 
-		 return redirect('dashboard');
+		return redirect('dashboard');
 	}
 
 

@@ -28,7 +28,6 @@
     <div class="container">
         <h2 class="title">Mis catalogos</h2>
         <?= $this->include('Componentes/filter') ?>
-        <?= $this->include('Componentes/search') ?>
     </div>
 
     <hr class="separator">
@@ -103,8 +102,10 @@
         <?php endforeach;?>
 
         <?php if(session()->get('errors')): ?>
-        <div class="errors">
-            <?= session()->get('errors') ?>
+        <div class="validations">
+            <?php foreach(session()->get('errors') as $error):?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
         </div>
         <?php endif;?>
 

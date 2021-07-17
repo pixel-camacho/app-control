@@ -9,9 +9,21 @@ class Users extends BaseController
 	{
 		$data = [];
 		$data['title'] = 'Welcome to System';
+		$model = new UserModel();
 		helper(['form']);
 
 		if($this->request->getMethod() == 'post'){
+
+         /*  $fieldName = 'username';
+		   $fieldRules = 'validateUser[username,password]';
+		   $model->setValidationRule($fieldName,$fieldRules);
+
+		   $fieldNameM = 'username';
+		   $fieldValidationMessage = [
+			   'validateUser' => 'Usuario o password Incorrecto'
+		   ];
+		   $model->setValidationMessage($fieldNameM,$fieldValidationMessage);*/
+
 
 			$rules = [
 				'username' => 'required|min_length[4]|max_length[25]',
@@ -35,7 +47,7 @@ class Users extends BaseController
 			if(!$this->validate($rules,$errors)){
 				$data['validation'] = $this->validator;
 			}else{
-				$model = new UserModel();
+				
 				$user  = $model->where('username',$this->request->getVar('username'))
 				               ->first();
 			    $this->setUserSession($user);
