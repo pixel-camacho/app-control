@@ -24,7 +24,6 @@ class Users extends BaseController
 		   ];
 		   $model->setValidationMessage($fieldNameM,$fieldValidationMessage);*/
 
-
 			$rules = [
 				'username' => 'required|min_length[4]|max_length[25]',
 				'password' => 'required|min_length[8]|max_length[255]|validateUser[username,password]'

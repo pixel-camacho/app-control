@@ -2,8 +2,8 @@
     <div class="form-body">
         <h2>Agregar Multifuncional</h2>
         <a href="" id="cerrar" title="Cerrar">&times;</a>
-        <form action="dashboard/addElement" method="post">
-            <label for="marcar">Marca</label>
+        <form action="dashboard/addItem" method="post">
+            <label for="marca">Marca</label>
             <input type="text" name="marca" id="marca">
 
             <label for="modelo">Modelo</label>

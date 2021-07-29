@@ -23,11 +23,19 @@ class TonnerModel {
         return $query;
     }
 
-    function deleteTonner($id, $data){
+    function delete($id, $data){
 
         $sql = $this->db->table('tonner');
         $sql->where('idTonner',$id);
         $sql->update($data);
+
+        return true;
+    }
+
+    function add (Array $data)
+    {
+        $sql = $this->db->table('tonner');
+        $sql->insert($data);
 
         return true;
     }

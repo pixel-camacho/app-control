@@ -14,13 +14,16 @@ class Dashboard extends BaseController
 		$multifuncionales = model('MultifuncionalModel');
 		$refacciones = new RefaccionesModel($db);
 		$tonner = new TonnerModel($db);
+		$validator = \config\Services::validation();
 
 		$data['title'] = 'Welcome to Dashboard';
 	    $data['refacciones'] = $refacciones->getRefacciones();
 		$data['tonners'] = $tonner->getTonner();
 		$data['equipos'] = $multifuncionales->where('status',1)
 		                                    ->findAll();
-				
+		$data['validation'] = $validator;
+		
+
 		echo view('layout/header',$data);
 		echo view('dashboard',$data);
 		echo view('layout/footer');
@@ -43,35 +46,61 @@ class Dashboard extends BaseController
 			if(!$update) return;
 
 		}else if($catalogo === 'refaccion'){
-			$update = $refacciones->deleteRefaccion($id,$data);
+			$update = $refacciones->delete($id,$data);
 			if(!$update) return;
 		
 		}else{
-			$update = $tonners->deleteTonner($id,$data);
+			$update = $tonners->delete($id,$data);
 			if(!$update) return;
 		}
 
-		session()->setFlashdata('success','Elemento eliminado del inventario');
+		session()->setFlashdata('success','Eliminado del inventario');
 		return redirect('dashboard');
 	}
 
-	public function addElement(){
+	public function addItem(){
         
+		$conecc = db_connect();
 		$equipo = model('MultifuncionalModel');
+		$refacciones = new RefaccionesModel($conecc);
+		$tonners = new TonnerModel($conecc);
 
 	    $newData = $_POST;
 		$newData['status'] = 1;
 
-		if($equipo->save($newData) === false){
-			session()->setFlashdata('errors',$equipo->errors());
+		if(array_key_exists('modelo',$newData)){
+
+			$this->add($equipo,$newData);
+		}else if(array_key_exists('pieza',$newData)){
+
+			$this->addSegundo('refaccion',$refacciones,$newData);
 		}else{
-			session()->setFlashdata('success','Equipo agregado al inventario.');
+
+			$this->addSegundo('tonner',$tonners,$newData);
 		}
 
 		return redirect('dashboard');
 	}
 
+	private function add($modelo,$data){
 
+			if($modelo->save($data) === false){
+				session()->setFlashdata('errors',$modelo->errors());
+			}else{
+				session()->setFlashdata('success','Agregado al inventario.');
+			}
+	}
+
+	private function addSegundo($text,$modelo,$data){
+
+		if(!$this->validate($text)){
+			return redirect()->back()->withInput();
+		}else{
+		    $modelo->add($data);
+			session()->setFlashdata('success','Agregado al inventario.');
+		}
+
+	}
 
 	public function salir(){
 		session()->destroy();

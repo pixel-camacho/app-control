@@ -1,5 +1,6 @@
 .modal,
-.modal-multiple{
+.modal-multiple,
+.modal-multiple1{
     position: fixed;
     width: 100%;
     min-height: 100vh;
@@ -28,7 +29,8 @@
     margin: 15px 0;
 }
 .form-body #cerrar,
-.form-body #cerrar1{
+.form-body #cerrar1,
+.form-body #cerrar2{
     position: absolute;
     top: 2px;
     right: 10px;

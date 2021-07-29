@@ -1,11 +1,12 @@
 <?= $this->include('Componentes/sidebar') ?>
 <?= $this->include('Componentes/modal') ?>
 
+<!-- Modal Refacciones -->
 <div class="modal-multiple">
     <div class="form-body">
         <h2>Agregar Refaccione</h2>
         <a href="" id="cerrar1" title="Cerrar">&times;</a>
-        <form action="dashboard/addElement" method="post">
+        <form action="dashboard/addItem" method="post">
             <label for="pieza">Pieza</label>
             <input type="text" name="pieza" id="pieza">
 
@@ -13,7 +14,7 @@
             <input type="text" name="cantidad" id="cantidad">
 
             <label for="multifuncional">Multifuncional</label>
-            <select name="multifuncional" id="multifuncional">
+            <select name="idMultifuncional" id="multifuncional">
                 <option value=""> * Seleccion multifuncional</option>
                 <?php foreach($equipos as $equipo): ?>
                     <?= "<option value= ".$equipo['idMultifuncional'].">".$equipo['marca'].' '.$equipo['modelo']."</option>" ?>
@@ -24,6 +25,31 @@
     </div>
 </div>
 
+<!-- Modal Tonners -->
+<div class="modal-multiple1">
+    <div class="form-body">
+        <h2>Agregar Tonner</h2>
+        <a href="" id="cerrar2" title="Cerrar">&times;</a>
+        <form action="dashboard/addItem" method="post">
+            <label for="descripcion">Descripcion</label>
+            <input type="text" name="descripcion" id="descripcion">
+
+            <label for="cantidad">Cantidad</label>
+            <input type="text" name="cantidad" id="cantidad">
+
+            <label for="multifuncional">Multifuncional</label>
+            <select name="idMultifuncional" id="multifuncional">
+                <option value=""> * Seleccion multifuncional</option>
+                <?php foreach($equipos as $equipo): ?>
+                    <?= "<option value= ".$equipo['idMultifuncional'].">".$equipo['marca'].' '.$equipo['modelo']."</option>" ?>
+                <?php endforeach;?>
+            </select>
+            <input type="submit" value="Agregar">
+        </form>
+    </div>
+</div>
+
+<?= $validation->listErrors() ?>
 <div class="dashboard">
     <div class="container">
         <h2 class="title">Mis catalogos</h2>
@@ -52,7 +78,7 @@
                 <span id="serie"><?= $equipo['serie'] ?></span>
             </div>
             <div class="botonera">
-                <button class="editar">
+                <button class="editar" id="<?= $equipo['idMultifuncional'] ?>" onclick="editarCard('.editar')">
                     Editar
                 </button>
             </div>
@@ -60,21 +86,21 @@
         <?php endforeach; ?>
 
 
-        <?php foreach($refacciones as $refaccione): ?>
+        <?php foreach($refacciones as $refaccion): ?>
         <div class="card" id="tarjeta">
-            <a href="dashboard/deleteitem?id=<?= $refaccione['idRefaccion'] ?>&&catalogo=refaccion" title="Eliminar"
+            <a href="dashboard/deleteitem?id=<?= $refaccion['idRefaccion'] ?>&&catalogo=refaccion" title="Eliminar"
                 class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/refaccion.png" alt="imagen del elemento">
-            <h5><?= $refaccione['pieza'] ?></h5>
+            <h5><?= $refaccion['pieza'] ?></h5>
             <div class="especificaciones">
                 <label>Cantidad</label>
-                <span id="cantidad"><?= $refaccione['cantidad'] ?></span>
+                <span id="cantidad"><?= $refaccion['cantidad'] ?></span>
                 <br>
                 <label>Multifuncional</label>
-                <span id="multifuncional"><?= $refaccione['multifuncional'] ?></span>
+                <span id="multifuncional"><?= $refaccion['multifuncional'] ?></span>
             </div>
             <div class="botonera">
-                <button class="editar">
+                <button class="editarR" id="<?= $refaccion['idRefaccion'] ?>">
                     Editar
                 </button>
             </div>
@@ -94,7 +120,7 @@
                 <span id="multifuncional" class="block"><?= $tonner['multifuncional'] ?></span>
             </div>
             <div class="botonera">
-                <button class="editar">
+                <button class="editarT" id="<?= $tonner['idTonner'] ?>">
                     Editar
                 </button>
             </div>

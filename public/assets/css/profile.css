@@ -18,11 +18,56 @@ main{
     align-items: center;
 }
 .form-update{
+    position: relative;
     width: 650px;
     height: 500px;
     border-radius: 10px;
     background: #fff;
     box-shadow: 5px 5px 15px rgba(150,150,150,.7);
+}
+.form-update label{
+    width: 50%;
+    padding: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.form-update input,
+.form-update select{
+    display: block;
+    width: 85%;
+    margin: 0 auto;
+    padding: 12px;
+    border: none;
+    outline: none;
+    background: #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: normal;
+    color: rgba(97, 92, 92, 0.905);
+}
+
+.form-update select,
+.form-update #photo{
+    width: 50%;
+    margin-left: 8%;
+}
+
+.form-update #img{
+    position: absolute;
+    right: 12%;
+    width: 150px;
+    margin-top: -8%;
+    border-radius: 50%;
+    border: 3px solid rgba(109, 164, 245, 0.6);
+    background-position: center;
+    background-size: contain;
+    transition: .5s;
+}
+
+.form-update input[type="submit"]{
+    width: 35%;
+    margin-top: 8%;
+    color: #fff;
 }
 
 /*MEDIA QUERY*/
@@ -32,5 +77,17 @@ main{
     .profile{
         margin-left: 80px;
         transition: margin-left .5s linear;
+    }
+}
+
+@media(max-width: 756px){
+    .form-update #img{
+        width: 120px;
+        right: 8%;
+        margin-top: -8%;
+    }
+
+    .form-update{
+        margin-left: 25px;
     }
 }

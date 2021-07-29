@@ -23,4 +23,5 @@ function showOrHidden(catalogo, cerrar, idmodal){
 
 showOrHidden('multi','cerrar','.modal')
 showOrHidden('refaccion','cerrar1','.modal-multiple')
+showOrHidden('tonner','cerrar2','.modal-multiple1')
 

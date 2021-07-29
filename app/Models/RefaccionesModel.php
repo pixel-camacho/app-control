@@ -23,12 +23,21 @@ class RefaccionesModel {
         return $query;
     }
 
-    function deleteRefaccion($id,$data){
+    function delete( Int $id, Array $data){
 
         $sql = $this->db->table('refaccion');
         $sql->where('idRefaccion',$id);
         $sql->update($data);
         
+        return true;
+
+    }
+
+    function add (Array $data)
+    {
+        $sql = $this->db->table('refaccion');
+        $sql->insert($data);
+
         return true;
     }
 

@@ -10,6 +10,7 @@ class Profile extends BaseController
 	{
 		$data = [];
 		$data['title'] = 'Profile of user';
+		$data['roles'] = ['user','admin'];
 
 		echo view('layout/header',$data);
 		echo view('profile/index');

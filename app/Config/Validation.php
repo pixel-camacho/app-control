@@ -41,4 +41,18 @@ class Validation
 	//--------------------------------------------------------------------
 	// Rules
 	//--------------------------------------------------------------------
-}
+    
+	public  $refaccion = [
+		'pieza' => 'required',
+		'cantidad' => 'required|integer',
+		'idMultifuncional' => 'required|integer'
+	];
+
+	public $tonner = [
+		'desccripcion' => 'required',
+		'cantidad' => 'required|integer|max_length|min_length',
+		'idMultifuncional' => 'required|integer'
+	];
+
+
+} 
