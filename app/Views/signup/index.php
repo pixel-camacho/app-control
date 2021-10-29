@@ -15,14 +15,14 @@
     <main>
         <div class="box-login">
             <h1 class="title">REGISTER USER</h1>
-            <img src="https://www.clker.com/cliparts/x/O/e/e/3/F/male-avatar-md.png" alt="foto de Usuario" class="img">
-            <form action="/register" method="POST">
+            <img src="/assets/img/user.png" alt="foto de Usuario" class="img">
+            <form action="/users/signup" method="POST">
 
                 <label for="username">Username</label>
-                <input type="text" name="username" value="<?= set_value('username') ?>">
+                <input type="text" name="username" value="<?= old('username') ?>">
 
                 <label for="name">Name</label>
-                <input type="text" name="name" value="<?= set_value('name') ?>" >
+                <input type="text" name="name" value="<?= old('name') ?>" >
 
                 <div class="passwordlabel">
                     <label for="password">Password</label>
@@ -42,7 +42,7 @@
 
     <?php if(isset($validation)): ?>
     <div class="errors">
-        <?= $validation->listErrors() ?>
+        <?= $validation ?>
     </div>
     <?php endif; ?>
 

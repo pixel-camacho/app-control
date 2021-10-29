@@ -42,11 +42,49 @@ class Validation
 	// Rules
 	//--------------------------------------------------------------------
     
-	public  $refaccion = [
+   //RULES USERS
+	public $signin = [
+		'username' => [
+			'rules' => 'required|validateUser[username,password]',
+			'errors' => [
+				'validateUser' => 'Usuario o password incorrecto'
+			]
+		],
+		'password' => 'required'
+	];
+
+	public $signup = [
+		'username' => 'required|min_length[4]|max_length[25]|is_unique[users.username]',
+		'name' => 'required|min_length[3]|max_length[30]',
+		'password' => 'required|min_length[8]|max_length[50]',
+		'passwordConfirm' => 'matches[password]'
+	];
+
+	//
+
+	//RULES REFACCIONES
+
+    public  $refaccion = [
+		'pieza' => 'required|alpha_numeric_space',
+		'cantidad' => 'required|integer|min_length[1]|max_length[2]',
+
+		'multifuncional_id' => [
+			'rules' => 'required|numeric|pieza_multifuncional_exit[multifuncional_id,pieza]',
+			'errors' => [
+				'pieza_multifuncional_exit' => 'Estimado usuario, este modelo ya tiene esta pieza'
+			]
+		]
+	];
+
+
+	//
+
+
+	/*public  $refaccion = [
 		'pieza' => 'required',
 		'cantidad' => 'required|integer',
 		'idMultifuncional' => 'required|integer'
-	];
+	];*/
 
 	public $tonner = [
 		'desccripcion' => 'required',

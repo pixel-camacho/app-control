@@ -58,7 +58,6 @@ main{
     width: 150px;
     margin-top: -8%;
     border-radius: 50%;
-    border: 3px solid rgba(109, 164, 245, 0.6);
     background-position: center;
     background-size: contain;
     transition: .5s;

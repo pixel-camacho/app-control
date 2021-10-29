@@ -10,11 +10,12 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/sidebar.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/alert.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/dashboard.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/profile.css')?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/report.css')?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/alert.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('assets/css/modal.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('assets/css/report.css')?>"> 
+    <link rel="stylesheet" id="link" href="<?= base_url('assets/css/modal.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/css/search.css') ?>">
 </head>
 <body>
+

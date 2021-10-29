@@ -8,5 +8,6 @@ function alertHidden(id){
     }
     
     alertHidden('.errors');
+    alertHidden('.error');
     alertHidden('.success');
     alertHidden('.validations');

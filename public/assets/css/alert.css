@@ -1,8 +1,9 @@
 .errors ul,
+.error,
 .success,
 .validations{
     position: absolute;
-    width: 250px;
+    width: 300px;
     top: 20px;
     right:  20px;
     list-style: none;

@@ -21,11 +21,11 @@
     <main>
         <div class="box-login">
             <h1 class="title">ACCOUNT LOGIN</h1>
-            <form action="/" method="POST">
+            <form action="/users/signin" method="POST">
                 <div class="input">
                     <label>USERNAME</label>
                     <i class="fa fa-user fa-2x icon"></i>
-                    <input type="text" name="username">
+                    <input type="text" name="username" value="<?= old("username") ?>">
                 </div>
                 <div class="input">
                     <label>PASSWORD</label>
@@ -41,7 +41,7 @@
 
 <?php if(isset($validation)): ?>
     <div class="errors">
-        <?= $validation->listErrors() ?>
+        <?= $validation ?>
     </div>
 <?php endif; ?>
 

@@ -1,5 +1,6 @@
 const view = document.getElementById('view');
 
+/*
 view.addEventListener('click',(e)=>{
    const input = document.getElementById('password');
    const icono = document.getElementById('view');
@@ -12,6 +13,7 @@ view.addEventListener('click',(e)=>{
          input.type = 'password';
      }
 })
+*/
 
 function alertHidden(id){
 setTimeout(()=>{

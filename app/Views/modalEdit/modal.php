@@ -1,8 +1,8 @@
 <div class="modal">
     <div class="form-body">
-        <h2>Agregar Multifuncional</h2>
+        <h2 id="subtitle" >Agregar Multifuncional</h2>
         <a href="" id="cerrar" title="Cerrar">&times;</a>
-        <form action="dashboard/addItem" method="post">
+        <form action="multifuncional/update" method="post" id="formEquipo">
             <label for="marca">Marca</label>
             <input type="text" name="marca" id="marca">
 
@@ -15,7 +15,9 @@
             <label for="serie">Serie</label>
             <input type="text" name="serie" id="serie" max="8">
 
-            <input type="submit" value="Agregar">
+            <input type="hidden" name="id" id="identificador">
+
+            <input type="submit" value="Editar" id="submit">
         </form>
     </div>
 </div>

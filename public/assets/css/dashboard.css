@@ -184,9 +184,13 @@ padding: 12px;
 }
 
 
-.card .botonera button {
+.card .botonera button,
+.card .botonera a {
     display: block;
     width: 70%;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
     font-size: .8rem;
     color: white;
     padding: 10px;

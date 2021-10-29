@@ -2,56 +2,88 @@
 
 namespace App\Controllers;
 use App\Controllers\BaseController;
-use App\Models\RefaccionesModel;
+use App\Models\RefaccioneModel;
 use App\Models\TonnerModel;
 
 class Dashboard extends BaseController
 {
+	public function __construct()
+	{
+		$this->multifuncionales = model('MultifuncionalModel');
+		$this->refacciones = model('RefaccionModel');
+		$this->tonner = model('TonnerModel');
+		$this->validator = \config\Services::validation();
+	}
+
 	public function index()
 	{
 		$data = [];
-		$db   = db_connect();
-		$multifuncionales = model('MultifuncionalModel');
-		$refacciones = new RefaccionesModel($db);
-		$tonner = new TonnerModel($db);
-		$validator = \config\Services::validation();
-
 		$data['title'] = 'Welcome to Dashboard';
-	    $data['refacciones'] = $refacciones->getRefacciones();
-		$data['tonners'] = $tonner->getTonner();
-		$data['equipos'] = $multifuncionales->where('status',1)
-		                                    ->findAll();
-		$data['validation'] = $validator;
+		$data['equipos'] = $this->multifuncionales->getAllComputers();
+	    $data['refacciones'] = $this->refacciones->getAllParts();
+		$data['tonners'] = $this->tonner->getAllTonners();
+		//$data['validation'] = $validator;
 		
-
 		echo view('layout/header',$data);
 		echo view('dashboard',$data);
 		echo view('layout/footer');
 	}
+	
+
+	public function getElementId($id,$catalogo){
+		$result = [];
+
+        if($catalogo === 'equipo'){
+			$result = $this->multifuncionales->where('status',1)
+			->where('id',$id)
+			->findAll();
+		}else if($catalogo === 'refaccion'){
+             $result = $this->refacciones->refaccionForId($id);
+		}else{
+            $result = $this->tonner->tonnerForId($id);
+		}
+		
+	  return json_encode($result[0]);
+	}
+
+	public function editItem(){
+		$data = $_POST;
+		$update = null;
+
+	    if(isset($data['serie'])){	
+		  $update = $this->multifuncionales->update($data['id'],$data);
+		}else if(isset($data['pieza'])){
+	      $update =	$this->refacciones->edit($data['id'],$data);
+		}else if(isset($data['descripcion'])){
+		  $update = $this->tonner->edit($data['id'],$data);
+		}
+
+		if(!$update){
+			session()->setFlashdata('error','Error actaulizando informacion');
+		    return  redirect('dashboard');
+		}
+
+		session()->setFlashdata('success','Elemento actualizado');
+		return  redirect('dashboard');
+	}
 
 	public function deleteitem(){
         
-		$db = db_connect();
 		$catalogo = $this->request->getVar('catalogo');
 		$id = $this->request->getVar('id');
-		$data = ['status' => 0, 'fechaBaja' => date('Y-m-d h:i:s')];
-
-		//Modelo
-		$multifuncionales = model('MultifuncionalModel');
-		$refacciones =  new RefaccionesModel($db);
-		$tonners = new TonnerModel($db);
+		$data = ['status' => 0, 'fecha_baja' => date('Y-m-d h:i:s')];
+		$delete = null;
 	                                                            
 		if($catalogo === 'multifuncional'){
-			$update = $multifuncionales->update($id,$data);
-			if(!$update) return;
-
+			$delete = $this->multifuncionales->update($id,$data);
 		}else if($catalogo === 'refaccion'){
-			$update = $refacciones->delete($id,$data);
-			if(!$update) return;
-		
+			$delete = $this->refacciones->delete($id,$data);
 		}else{
-			$update = $tonners->delete($id,$data);
-			if(!$update) return;
+			$delete = $this->tonner->delete($id,$data);
+		}
+		if(!$delete){
+			session()->setFlashdata('error','Problemas al eliminar');
+			return redirect('dashboard');
 		}
 
 		session()->setFlashdata('success','Eliminado del inventario');
@@ -59,26 +91,17 @@ class Dashboard extends BaseController
 	}
 
 	public function addItem(){
-        
-		$conecc = db_connect();
-		$equipo = model('MultifuncionalModel');
-		$refacciones = new RefaccionesModel($conecc);
-		$tonners = new TonnerModel($conecc);
 
 	    $newData = $_POST;
 		$newData['status'] = 1;
 
 		if(array_key_exists('modelo',$newData)){
-
-			$this->add($equipo,$newData);
+			$this->add($this->multifuncionales,$newData);
 		}else if(array_key_exists('pieza',$newData)){
-
-			$this->addSegundo('refaccion',$refacciones,$newData);
+			$this->addSegundo('refaccion',$this->refacciones,$newData);
 		}else{
-
-			$this->addSegundo('tonner',$tonners,$newData);
+			$this->addSegundo('tonner',$this->tonner,$newData);
 		}
-
 		return redirect('dashboard');
 	}
 
@@ -99,7 +122,6 @@ class Dashboard extends BaseController
 		    $modelo->add($data);
 			session()->setFlashdata('success','Agregado al inventario.');
 		}
-
 	}
 
 	public function salir(){

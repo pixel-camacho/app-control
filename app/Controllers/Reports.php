@@ -10,7 +10,7 @@ class Reports extends BaseController
 	{
 		$data = [];
 		$data['title'] = 'This is Report';
-
+		
 		echo view('layout/header',$data);
 		echo view('report/index');
 		echo view('layout/footer');

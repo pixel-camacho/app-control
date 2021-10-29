@@ -3,7 +3,7 @@
 <div class="profile">
     <main>
         <div class="form-update">
-            <form action="Users/update" method="post">
+            <form action="Users/updateDataUser" method="post">
 
                 <label for="username">Username</label>
                 <input type="text" name="username" value="<?= session()->get('username') ?>">
@@ -21,18 +21,17 @@
                 <img src="<?= session()->get('photo') ?>" alt="imagen de perfil" id="img">
 
                 <label for="photo">Imagen de perfil</label>
-                <input type="text" name="photo" id="photo" value="<?= session()->get('photo') ?>">
+                <input type="text" name="photo" id="photo" value="<?= session()->get('photo') ?>" >
 
-                <!--   <div class="label">
+            <!--<div class="label">
                     <label for="password" id="pass">Password</label>
                     <label for="confirm_password" id="confir">Confirm Password</label>
                 </div>
+                
                 <input type="password" name="password">
-
-
                 <input type="password" name="confirm_password"> -->
 
-                <input type="submit" value="Actualizar" style="background: #333;">
+                <input type="submit" value="Actualizar" style="background: #333;cursor:pointer;">
             </form>
         </div>
     </main>
