@@ -46,15 +46,19 @@ class Multifuncional extends BaseController
 	public function update()
 	{
 		$data = $_POST;
-      
+
+		if(!$this->validate('updateMultifuncional')):
+           return redirect()->back()->withInput();
+		endif;
+		
 		try {
-			if(!$this->multifuncionales->update($data['id'],$data)):
-				return $this->saveFlashData('erro','Problemas actualizando registro');
+			if(!$this->multifuncional->save($data)):
+				return $this->saveFlashData('error','Ha ocurrido un problema en la operacion');
 			endif;
-			    return $this->saveFlashData('success','Multifuncional actualizado');
+			    return $this->saveFlashData('success','Equipo actualizado');
 
 		} catch (\Exception $e) {
-			 return $this->saveFlashData('error','Problemas en el servidor');
+			 return $this->saveFlashData('error',$e->getMessage());
 		}
 	}
 

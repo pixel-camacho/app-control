@@ -62,6 +62,18 @@ class Validation
 
 	//
 
+
+	//RULES MULTIFUNCIONALES
+    
+		public $updateMultifuncional = [
+		'marca' => 'required',
+		'modelo' => 'required',
+		'cantidad' => 'required|integer',
+		'serie' => 'required|string|max_length[8]',
+	    ];
+
+	//
+
 	//RULES REFACCIONES
 
     public  $refaccion = [

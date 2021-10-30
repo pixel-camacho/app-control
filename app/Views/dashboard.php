@@ -13,6 +13,12 @@
 
     <hr class="separator">
 
+<?php if(session()->get('success')): ?>
+<div class="success">
+    <?= session()->get('success') ?>
+</div>
+<?php endif;?>
+
     <div class="contenedor-tarjetas" id="cards">
 
         <?php if(session()->get('success')): ?>
@@ -81,5 +87,17 @@
             </div>
         </div>
         <?php endforeach;?>
+
+        <?php if(session()->get('error')): ?>
+          <div class="error">
+            <?= session()->get('error') ?>
+          </div>
+        <?php endif;?>
+
+        <?php if(isset($validation)): ?>
+        <div class="errors">
+            <?= $validation ?>
+        </div>
+        <?php endif; ?>
 
     </div>

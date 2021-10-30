@@ -45,6 +45,8 @@
     </div>
 <?php endif; ?>
 
+
+
     <script src="<?= base_url('assets/js/users.js') ?>"></script>  
 </body>
 </html>

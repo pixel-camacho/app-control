@@ -14,12 +14,12 @@ class MultifuncionalModel extends Model
 	protected $protectFields        = true;
 	protected $allowedFields        = ['id','marca','modelo','cantidad','serie','status','fecha_baja'];
 
-	protected $validationRules = [
+/*	protected $validationRules = [
 		'marca' => 'required',
 		'modelo' => 'required|is_unique[multifuncional.modelo]',
 		'cantidad' => 'required|is_natural',
 		'serie' => 'required|string',
-	];
+	];*/
 
 	public function getAllComputers(){
 
