@@ -1,5 +1,11 @@
 <?= $this->include('Componentes/sidebar') ?>
-<?= $this->include('modalEdit/modal') ?>
+
+<!-- CATALOGO MULTIFUNCIONAL -->
+<?= $this->include('modal_edit/modal') ?>
+<?= $this->include('modal_add/modal') ?>
+
+
+
 
 
 <div class="dashboard">
@@ -29,7 +35,7 @@
 
         <?php foreach($equipos as $equipo): ?>
         <div class="card" id="tarjeta">
-            <a href="dashboard/deleteitem?id=<?= $equipo['id'] ?>&&catalogo=multifuncional" title="Eliminar"
+            <a href="multifuncional/delete?id=<?= $equipo['id'] ?>" title="Eliminar"
                 class="eliminar"><i class="fa fa-times close"></i></a>
             <img src="assets/img/printer.png" alt="imagen del elemento">
             <h5 id="desc"><?= $equipo['marca'].' '.$equipo['modelo'] ?></h5>
@@ -95,9 +101,9 @@
         <?php endif;?>
 
         <?php if(isset($validation)): ?>
-        <div class="errors">
+         <div class="errors">
             <?= $validation ?>
-        </div>
+         </div>
         <?php endif; ?>
 
     </div>

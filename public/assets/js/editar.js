@@ -1,31 +1,4 @@
- /*
-function renameElements(){
-
-      //submits
-      let submitE = document.getElementById('submit');
-      let submitR = document.getElementById('submitR');
-      let submitT = document.getElementById('submitT');
-
-      submitE.value = "Editar";
-      submitR.value = "Editar";
-      submitT.value = "Editar";
-
-      document.getElementById('subtitle').innerHTML = "Editar Multifuncional";
-      document.getElementById('subtitle1').innerHTML = "Editar Refaccion";
-      document.getElementById('subtitle2').innerHTML = "Editar Tonner";
-
-}
-
-
-function changeAction(clasBtn,form){
-    if(clasBtn == '.editar' || clasBtn == '.editarR' || clasBtn == '.editarT'){
-        document.forms[form]. action = "dashboard/editItem";
-        renameElements();
-    }
- }
- */
-  
- async function fetchData(adress,id){
+   async function fetchData(adress,id){
      try {
         let res  = await fetch(adress+id);
         let data = await res.text();
@@ -78,7 +51,7 @@ function showOrHiddenModal(modal){
     document.querySelector(modal).style.visibility = "visible";
 }
 
-async  function editarCard(clase,catalogo,modal,form){
+async  function editarCard(clase,catalogo,modal){
 
     let cards = document.querySelectorAll(clase);
     
@@ -89,13 +62,12 @@ async  function editarCard(clase,catalogo,modal,form){
       let data = JSON.parse(json)
 
       loadData(data,catalogo,e.target.id)
-      //changeAction(clase,form)
       showOrHiddenModal(modal) 
      })
     }
 }
 
-editarCard('.editar','multifuncional','.modal','formEquipo');
+editarCard('.editar','multifuncional','.modal_edit');
 //editarCard('.editarR','refaccion','.modal-multiple','formRefaciones');
 //editarCard('.editarT','tonner','.modal-multiple1','formTonner');
 

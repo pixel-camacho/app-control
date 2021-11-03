@@ -72,6 +72,14 @@ class Validation
 		'serie' => 'required|string|max_length[8]',
 	    ];
 
+		public $addMultifuncional = [
+			'marca' => 'required',
+			'modelo' => 'required|is_unique[multifuncional.modelo]',
+			'cantidad' => 'required|integer',
+			'serie' => 'required|string|max_length[8]|is_unique[multifuncional.serie]',
+			];
+	
+
 	//
 
 	//RULES REFACCIONES

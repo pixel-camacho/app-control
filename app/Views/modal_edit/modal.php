@@ -1,8 +1,8 @@
-<div class="modal">
+<div class="modal_edit">
     <div class="form-body">
-        <h2 id="subtitle" >Agregar Multifuncional</h2>
-        <a href="" id="cerrar" title="Cerrar">&times;</a>
-        <form action="multifuncional/update" method="post" id="formEquipo">
+        <h2 id="subtitle" >Actualizar Multifuncional</h2>
+        <a href="" id="cerrar_edit" title="Cerrar">&times;</a>
+        <form action="multifuncional/update" method="post">
             <label for="marca">Marca</label>
             <input type="text" name="marca" id="marca">
 
