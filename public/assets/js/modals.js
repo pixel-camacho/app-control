@@ -41,8 +41,13 @@ function showOrHidden_add(btn, btnclose, idmodal){
 
 }
 
+//MULTIFUNCIONAL
 showOrHidden('cerrar_edit','.modal_edit')
 showOrHidden_add('multi','cerrar_add','.modal_add')
+
+//REFACCION
+showOrHidden('cerrar_edit_refaccion','.modal_edit_refaccion')
+//showOrHidden_add('multi','cerrar_add','.modal_add')
 
 //showOrHidden('refaccion','cerrar1','.modal-multiple','formRefaciones')
 //showOrHidden('tonner','cerrar2','.modal-multiple1','formTonner')

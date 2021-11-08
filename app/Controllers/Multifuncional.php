@@ -72,8 +72,8 @@ class Multifuncional extends BaseController
 			if(!$this->multifuncional->save($data)):
 				return $this->saveFlashData('error','Ha ocurrido un problema en la operacion');
 			endif;
+
 			return redirect('dashboard');
-			session()->getFlashdata('success','Equipo actualizado');
 
 		} catch (\Exception $e) {
 			 return $this->saveFlashData('error',$e->getMessage());

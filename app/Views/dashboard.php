@@ -4,6 +4,8 @@
 <?= $this->include('modal_edit/modal') ?>
 <?= $this->include('modal_add/modal') ?>
 
+<!-- CATALOGO REFACCION -->
+<?= $this->include('modal_edit/modal_refaccion') ?>
 
 
 
@@ -27,9 +29,9 @@
 
     <div class="contenedor-tarjetas" id="cards">
 
-        <?php if(session()->get('success')): ?>
-        <div class="success">
-            <?= session()->get('success') ?>
+        <?php if(session()->get('error')): ?>
+        <div class="error">
+            <?= session()->get('error') ?>
         </div>
         <?php endif;?>
 
@@ -67,7 +69,7 @@
                 <span id="multifuncional"><?= $refaccion['multifuncional'] ?></span>
             </div>
             <div class="botonera">
-                <button class="editarR" id="<?= $refaccion['id'] ?>">
+                <button class="editar_refaccion" id="<?= $refaccion['id'] ?>">
                     Editar
                 </button>
             </div>

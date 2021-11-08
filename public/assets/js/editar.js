@@ -34,9 +34,9 @@ function loadData(data,catalogo,id){
     }else if(catalogo === 'refaccion'){
         document.getElementById('identificador1').value = id;
         document.getElementById('pieza').value = data.pieza;
-        document.getElementById('cantidadr').value = data.cantidad;
-        let select = document.getElementById('multifuncionalr').options;
-        select.item(getIndex(select,data.idMultifuncional)).selected = true;
+        document.getElementById('cantidad_refaccion').value = data.cantidad;
+       // let select = document.getElementById('multifuncionalr').options;
+       // select.item(getIndex(select,data.idMultifuncional)).selected = true;
     }else if(catalogo === 'tonner'){
         document.getElementById('identificador2').value = id;
         document.getElementById('descripcion').value = data.descripcion;
@@ -68,7 +68,7 @@ async  function editarCard(clase,catalogo,modal){
 }
 
 editarCard('.editar','multifuncional','.modal_edit');
-//editarCard('.editarR','refaccion','.modal-multiple','formRefaciones');
+editarCard('.editar_refaccion','refaccion','.modal_edit_refaccion');
 //editarCard('.editarT','tonner','.modal-multiple1','formTonner');
 
 
