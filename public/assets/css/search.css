@@ -1,27 +1,26 @@
 .buscador{
     position: relative;
-    left: 10px;
-    width: 200px;
+    left: 2.5%;
+    width: 250px;
     height: 40px;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 20px;
     overflow: hidden;
 }
-.buscador .input{
+
+.buscador  .icono{
     position: absolute;
-    display: block;
-    width: 200px;
-    height: 40px;
-    margin: 0 auto;
+    font-size: 20px;
+    left: 5px;
+    top: 25%;
 }
-.buscador .input input{
+
+.buscador  input{
     position: absolute;
-    top: 0;
-    width: 100%;
+    width: 90%;
     height: 100%;
+    left: 30px;
     border: none;
     outline: none;
-    padding: 7px;
-    color: gray;
-    text-align: center;
+    text-align: left;
 }

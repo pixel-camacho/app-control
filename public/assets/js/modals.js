@@ -47,8 +47,9 @@ showOrHidden_add('multi','cerrar_add','.modal_add')
 
 //REFACCION
 showOrHidden('cerrar_edit_refaccion','.modal_edit_refaccion')
-//showOrHidden_add('multi','cerrar_add','.modal_add')
+showOrHidden_add('refaccion','cerrar_add_refaccion','.modal_add_refaccion')
 
-//showOrHidden('refaccion','cerrar1','.modal-multiple','formRefaciones')
-//showOrHidden('tonner','cerrar2','.modal-multiple1','formTonner')
+//TONNER
+showOrHidden('cerrar_edit_tonner','.modal_edit_tonner')
+showOrHidden_add('tonner','cerrar_add_tonner','.modal_add_tonner')
 

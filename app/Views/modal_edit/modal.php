@@ -13,7 +13,7 @@
             <input type="number" name="cantidad" id="cantidad">
 
             <label for="serie">Serie</label>
-            <input type="text" name="serie" id="serie" max="8">
+            <input type="text" name="serie" id="serie" max="12">
 
             <input type="hidden" name="id" id="identificador">
 

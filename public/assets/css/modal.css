@@ -3,7 +3,10 @@
 .modal-multiple1,
 .modal_add,
 .modal_edit,
-.modal_edit_refaccion{
+.modal_edit_refaccion,
+.modal_add_refaccion,
+.modal_edit_tonner,
+.modal_add_tonner{
     position: fixed;
     width: 100%;
     min-height: 100vh;
@@ -34,6 +37,9 @@
 .form-body #cerrar_add,
 .form-body #cerrar_edit,
 .form-body #cerrar_edit_refaccion,
+.form-body #cerrar_add_refaccion,
+.form-body #cerrar_edit_tonner,
+.form-body #cerrar_add_tonner,
 .form-body #cerrar1,
 .form-body #cerrar2{
     position: absolute;

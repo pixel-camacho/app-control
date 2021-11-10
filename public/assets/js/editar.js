@@ -9,18 +9,23 @@
 }
 
 function getIndex(select,id){
+
     let index = 0;
-     
-    if(select.length === 0){
-         return index = 1;
+
+    if(select.length == 0)
+    {
+       index = 1;
     }
 
-    for(let i = 0; i < select.length; i++){
-        if(select[i].value == id){
+    for(let i = 0; i < select.length; i++)
+    {
+        if(select[i].value == id)
+        {
             index = i;
         }
     }
-    return index;
+
+   return index;
 }
 
 function loadData(data,catalogo,id){
@@ -32,17 +37,17 @@ function loadData(data,catalogo,id){
         document.getElementById('serie').value = data.serie;
         document.getElementById('identificador').value = id;
     }else if(catalogo === 'refaccion'){
-        document.getElementById('identificador1').value = id;
+        document.getElementById('identificador_refaccion').value = id;
         document.getElementById('pieza').value = data.pieza;
         document.getElementById('cantidad_refaccion').value = data.cantidad;
-       // let select = document.getElementById('multifuncionalr').options;
-       // select.item(getIndex(select,data.idMultifuncional)).selected = true;
+        let select = document.getElementById('multifuncional_refaccion_edit').options;
+        select.item(getIndex(select,data.multifuncional_id)).selected = true;
     }else if(catalogo === 'tonner'){
-        document.getElementById('identificador2').value = id;
+        document.getElementById('identificador_tonner').value = id;
         document.getElementById('descripcion').value = data.descripcion;
-        document.getElementById('cantidadt').value = data.cantidad;
-        let select = document.getElementById('multifuncionalt').options;
-        select.item(getIndex(select,data.idMultifuncional)).selected =  true;
+        document.getElementById('cantidad_tonner').value = data.cantidad;
+        let select = document.getElementById('multifuncional_tonner_edit').options;
+        select.item(getIndex(select,data.multifuncional_id)).selected =  true;
     }
 }
 
@@ -69,7 +74,7 @@ async  function editarCard(clase,catalogo,modal){
 
 editarCard('.editar','multifuncional','.modal_edit');
 editarCard('.editar_refaccion','refaccion','.modal_edit_refaccion');
-//editarCard('.editarT','tonner','.modal-multiple1','formTonner');
+editarCard('.editar_tonner','tonner','.modal_edit_tonner');
 
 
 

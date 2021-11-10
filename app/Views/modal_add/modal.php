@@ -12,9 +12,6 @@
             <label for="cantidad">Cantidad</label>
             <input type="number" name="cantidad" id="cantidad" value="<?= old('cantidad') ?>">
 
-            <label for="serie">Serie</label>
-            <input type="text" name="serie" id="serie" max="8">
-
             <input type="submit" value="Agregar" id="submit">
         </form>
     </div>

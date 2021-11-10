@@ -24,7 +24,8 @@ class Validation
 		FormatRules::class,
 		FileRules::class,
 		CreditCardRules::class,
-		\App\Validation\UserRules::class
+		\App\Validation\UserRules::class,
+		\App\Validation\RefaccionRules::class
 	];
 
 	/**
@@ -69,14 +70,13 @@ class Validation
 		'marca' => 'required',
 		'modelo' => 'required',
 		'cantidad' => 'required|integer',
-		'serie' => 'required|string|max_length[8]',
+		'serie' => 'required|string|max_length[12]',
 	    ];
 
 		public $addMultifuncional = [
 			'marca' => 'required',
 			'modelo' => 'required|is_unique[multifuncional.modelo]',
 			'cantidad' => 'required|integer',
-			'serie' => 'required|string|max_length[8]|is_unique[multifuncional.serie]',
 			];
 	
 
@@ -84,7 +84,7 @@ class Validation
 
 	//RULES REFACCIONES
 
-    public  $refaccion = [
+    public  $refaccion_edit = [
 		'pieza' => 'required|alpha_numeric_space',
 		'cantidad' => 'required|integer|min_length[1]|max_length[2]',
 
@@ -96,9 +96,17 @@ class Validation
 		]
 	];
 
-
 	//
 
+	//RULES TONNER
+    
+	public $tonner_edit = [
+		'descripcion' => 'required|alpha_numeric_space',
+		'cantidad' => 'required|integer|min_length[1]|max_length[2]',
+		'multifuncional_id' => 'required|numeric',
+	];
+
+	//
 
 	/*public  $refaccion = [
 		'pieza' => 'required',
@@ -106,11 +114,11 @@ class Validation
 		'idMultifuncional' => 'required|integer'
 	];*/
 
-	public $tonner = [
-		'desccripcion' => 'required',
-		'cantidad' => 'required|integer|max_length|min_length',
-		'idMultifuncional' => 'required|integer'
-	];
+	// public $tonner = [
+	// 	'desccripcion' => 'required',
+	// 	'cantidad' => 'required|integer|max_length|min_length',
+	// 	'idMultifuncional' => 'required|integer'
+	// ];
 
 
 } 

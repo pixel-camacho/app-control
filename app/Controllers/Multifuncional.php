@@ -36,12 +36,25 @@ class Multifuncional extends BaseController
 		} catch (\Exception $e) {
 			 return $e->getMessage();
 		}
-	}
+	} 
+
+	private function generarSerie($length = 12)
+    {
+       $caracteres = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+       $logitud = strlen($caracteres);
+       $randomString = "";
+
+        for ($i = 0; $i < $length; $i++) {
+           $randomString .= $caracteres[rand(0, $logitud - 1)];
+        }
+         return $randomString;
+    }
 
 	public function create()
 	{
 		$new_multifuncional = $_POST;
 		$new_multifuncional['status'] = 1;
+		$new_multifuncional['serie'] = $this->generarSerie();
 
 		if(!$this->validate('addMultifuncional')):
 			return redirect()->back()->withInput();
