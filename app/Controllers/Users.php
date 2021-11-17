@@ -86,8 +86,5 @@ class Users extends BaseController
 		session()->set($data);
 	}
 
-	public function updateDataUser(){
-		$dataForm = $_POST;
-		var_dump($dataForm);
-	}
+	
 }

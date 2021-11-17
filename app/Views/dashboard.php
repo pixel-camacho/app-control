@@ -28,20 +28,21 @@
 
     <hr class="separator">
 
-    <div class="contenedor-tarjetas" id="cards">
-
-        <?php if(session()->get('error')): ?>
-         <div class="error">
-            <?= session()->get('error') ?>
-         </div>
-        <?php endif;?>
-
-        
-       <?php if(session()->get('success')): ?>
+    <?php if(session()->getFlashdata('success')): ?>
         <div class="success">
-           <?= session()->get('success') ?>
+           <?= session()->getFlashdata('success') ?>
         </div>
        <?php endif;?>
+
+       <?php if(session()->getFlashdata('error') ): ?>
+         <div class="error">
+            <?= session()->getFlashdata('error') ?>
+         </div>
+        <?php endif;?>
+ 
+    <div class="contenedor-tarjetas" id="cards">
+           
+    <h2 id="message_empty">SIN RESULTADOS</h2>
 
         <?php foreach($equipos as $equipo): ?>
         <div class="card" id="tarjeta">

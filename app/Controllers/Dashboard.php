@@ -17,6 +17,7 @@ class Dashboard extends BaseController
 
 	public function index()
 	{
+		session();
 		$data = [];
 		$data['title'] = 'Welcome to Dashboard';
 		$data['equipos'] = $this->multifuncionales->getAllComputers();

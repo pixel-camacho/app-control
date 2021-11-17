@@ -13,6 +13,7 @@ class Multifuncional extends BaseController
 
 	public function index()
 	{
+
 		echo 'Multifuncional Padrino';
 	}
 
@@ -86,7 +87,7 @@ class Multifuncional extends BaseController
 				return $this->saveFlashData('error','Ha ocurrido un problema en la operacion');
 			endif;
 
-			return redirect('dashboard');
+			return $this->saveFlashData('success','Multifuncional Actualizado');
 
 		} catch (\Exception $e) {
 			 return $this->saveFlashData('error',$e->getMessage());
