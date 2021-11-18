@@ -18,7 +18,7 @@
 }
 .reportes .title{
     width: 100%;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 500;
 }
 .separador{
@@ -29,6 +29,42 @@
     border: none;
 }
 
+.report-form{
+    width: 100%;
+    padding: 1rem 1rem;
+}
+.report-form form{
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.report-form form label{
+    padding: .3rem;
+    font-size: 17px;
+}
+
+.report-form form span{
+    margin: 0 7px;
+}
+.report-form form input,
+.report-form form select{
+    width: 150px;
+    padding: .7em;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+}
+.report-form form select{
+    width: 200px;
+}
+.report-form form input[type="submit"]{
+    background-color: #333;
+    width: 100px;
+    color: white;
+    font-weight: bold;
+    margin-left: 30px;
+}
 
 /*MEDIA QUERY*/
 

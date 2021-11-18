@@ -12,9 +12,6 @@
 <?= $this->include('modal_edit/modal_tonner') ?>
 <?= $this->include('modal_add/modal_tonner')  ?>
 
-
-
-
 <div class="dashboard">
 
     <div class="container">
@@ -32,13 +29,13 @@
         <div class="success">
            <?= session()->getFlashdata('success') ?>
         </div>
-       <?php endif;?>
+    <?php endif;?>
 
-       <?php if(session()->getFlashdata('error') ): ?>
-         <div class="error">
-            <?= session()->getFlashdata('error') ?>
-         </div>
-        <?php endif;?>
+    <?php if(session()->getFlashdata('error') ): ?>
+        <div class="error">
+          <?= session()->getFlashdata('error') ?>
+        </div>
+    <?php endif;?>
  
     <div class="contenedor-tarjetas" id="cards">
            

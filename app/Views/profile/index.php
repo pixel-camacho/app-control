@@ -30,6 +30,7 @@
                 
                 <input type="password" name="password">
                 <input type="password" name="confirm_password"> -->
+                
                 <input type="hidden" name="empleado" value="<?= session()->get('id') ?>" >
                 <input type="submit" value="Actualizar" style="background: #333;cursor:pointer;">
             </form>

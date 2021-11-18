@@ -22,6 +22,7 @@ class Profile extends BaseController
 	public function updateDataUser(){
 		
 		$dataForm = $_POST;
+		//$file = $_FILES['image'];
 		$file = $this->request->getFiles();
 		var_dump($file);
 	}
