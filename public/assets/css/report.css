@@ -60,10 +60,19 @@
 }
 .report-form form input[type="submit"]{
     background-color: #333;
-    width: 100px;
+    width: 70px;
     color: white;
     font-weight: bold;
     margin-left: 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+/*HOVER*/
+
+.report-form  form input[type="submit"]:hover{
+  background-color:#666;
 }
 
 /*MEDIA QUERY*/

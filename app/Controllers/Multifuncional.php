@@ -9,18 +9,13 @@ class Multifuncional extends BaseController
     public function __construct()
 	{
 		$this->multifuncional = model('MultifuncionalModel');
+		$this->session = session();
 	}
 
 	public function index()
 	{
 
 		echo 'Multifuncional Padrino';
-	}
-
-	private function saveFlashData ($estate  = 'error', $message = 'problemas')
-	{
-		session()->getFlashdata($estate,$message);
-		return redirect('dashboard');
 	}
 
 	public function getElementById($id = null)
@@ -64,13 +59,15 @@ class Multifuncional extends BaseController
 		try {
 
 			if(!$this->multifuncional->insert($new_multifuncional)):
-			    return $this->saveFlashData('error','Ha ocurrido un problema insertando');
+			    $this->session->setFlashdata('error','Ha ocurrido un problema insertando');
+				return redirect('dashboard');
 			endif;
-			 
-			return $this->saveFlashData('success','Multifuncional agregada n.n');
+			    $this->sesssion->setFlashData('success','Multifuncional agregada');
+				return redirect('dashboard');
 
 		} catch (\Exception $e) {
-			return $e->getMessage();
+			 $this->session->setFlasdata('error',$e->getMessage());
+			 return redirect('dashboard');
 		}
 	}
 
@@ -84,13 +81,15 @@ class Multifuncional extends BaseController
 		
 		try {
 			if(!$this->multifuncional->save($data)):
-				return $this->saveFlashData('error','Ha ocurrido un problema en la operacion');
+				 $this->session->setFlashData('error','Ha ocurrido un problema en la operacion');
+				 return redirect('dashboard');
 			endif;
-
-			return $this->saveFlashData('success','Multifuncional Actualizado');
-
+			     $this->session->setFlashData('success','Multiduncional Actualizado');
+				 return redirect('dashboard'); 
+				 
 		} catch (\Exception $e) {
-			 return $this->saveFlashData('error',$e->getMessage());
+			  $this->session->setFlashData('error',$e->getMessage());
+			  return redirect('dashboard');
 		}
 	}
 
@@ -102,13 +101,16 @@ class Multifuncional extends BaseController
 		try {
 	
 			if(!$this->multifuncional->update($id,$data)):
-				return $this->saveFlashData('error','Ha ocurrido un eliminando equipo');
+			    $this->session->setFlashData('error','Ha ocurrido un problema eliminando equipo');
+				return redirect('dashboard');
 			else:
-				return $this->saveFlashData('success','Multifuncional eliminado');
+			    $this->session->setFlashData('success','Multifuncional eliminado');
+				return redirect('dashboard');
 			endif;
 
 		} catch (\Exception $e) {
-			return $this->saveFlashData('error',$e->getMessage());
+			return $this->session->setFlashData('error',$e->getMessage());
+			return redirect('dashboard');
 		}
 	}
 }

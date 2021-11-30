@@ -39,6 +39,8 @@ $routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
 $routes->get('profile', 'Profile::index', ['filter' => 'auth']);
 $routes->get('reports', 'Reports::index', ['filter' => 'auth']);
 
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

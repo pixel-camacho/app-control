@@ -13,7 +13,7 @@
     color: white;
     font-weight: 700;
     opacity: .7;
-    transition:  all .4s linear;
+    transition: .4s linear;
 }
 
 .success {

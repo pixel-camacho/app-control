@@ -43,8 +43,11 @@
 
         <?php foreach($equipos as $equipo): ?>
         <div class="card" id="tarjeta">
+        <?php if(session()->get('role') == 'admin'):?>
             <a href="multifuncional/delete?id=<?= $equipo['id'] ?>" title="Eliminar"
-                class="eliminar"><i class="fa fa-times close"></i></a>
+                class="eliminar"><i class="fa fa-times close"></i>
+            </a>
+        <?php endif; ?>
             <img src="assets/img/printer.png" alt="imagen del elemento">
             <h5 id="desc"><?= $equipo['marca'].' '.$equipo['modelo'] ?></h5>
             <div class="especificaciones">
@@ -53,18 +56,23 @@
                 <label>Serie</label>
                 <span id="serie"><?= $equipo['serie'] ?></span>
             </div>
+            <?php if(session()->get('role') == 'admin'):?>
             <div class="botonera">
                 <button class="editar" id="<?= $equipo['id'] ?>">
                     Editar
                 </button>
             </div>
+            <?php endif; ?>
         </div>
         <?php endforeach; ?>
 
         <?php foreach($refacciones as $refaccion): ?>
         <div class="card" id="tarjeta">
+        <?php if(session()->get('role') == 'admin'):?>
             <a href="refaccion/delete?id=<?= $refaccion['id'] ?>" title="Eliminar"
-                class="eliminar"><i class="fa fa-times close"></i></a>
+                class="eliminar"><i class="fa fa-times close"></i>
+            </a>
+        <?php endif; ?>
             <img src="assets/img/refaccion.png" alt="imagen del elemento">
             <h5><?= $refaccion['pieza'] ?></h5>
             <div class="especificaciones">
@@ -74,18 +82,23 @@
                 <label>Multifuncional</label>
                 <span id="multifuncional"><?= $refaccion['marca'].' '.$refaccion['modelo'] ?></span>
             </div>
+            <?php if(session()->get('role') == 'admin'):?>
             <div class="botonera">
                 <button class="editar_refaccion" id="<?= $refaccion['id'] ?>">
                     Editar
                 </button>
             </div>
+            <?php endif; ?>
         </div>
         <?php endforeach;?>
 
         <?php foreach($tonners  as $tonner): ?>
         <div class="card" id="tarjeta">
+        <?php if(session()->get('role') == 'admin'):?>
             <a href="tonner/delete?id=<?= $tonner['id'] ?>" title="Eliminar"
-                class="eliminar"><i class="fa fa-times close"></i></a>
+                class="eliminar"><i class="fa fa-times close"></i>
+            </a>
+        <?php endif; ?>
             <img src="assets/img/tonner.png" alt="imagen del elemento">
             <h5><?=  strtoupper($tonner['descripcion']) ?></h5>
             <div class="especificaciones">
@@ -94,11 +107,13 @@
                 <label>Multifuncional</label>
                 <span id="multifuncional" class="block"><?= $tonner['marca'].' '.$tonner['modelo'] ?></span>
             </div>
+            <?php if(session()->get('role') == 'admin'):?>
             <div class="botonera">
                 <button class="editar_tonner" id="<?= $tonner['id'] ?>">
                     Editar
                 </button>
             </div>
+            <?php endif; ?>
         </div>
         <?php endforeach;?>
 

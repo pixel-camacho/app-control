@@ -24,6 +24,7 @@ class Dashboard extends BaseController
 	    $data['refacciones'] = $this->refacciones->getAllParts();
 		$data['tonners'] = $this->tonner->getAllTonners();
 		$data['validation'] = $this->validator->listErrors();
+		$data['pager'] = $this->multifuncionales->pager;
 		
 		echo view('layout/header',$data);
 		echo view('dashboard',$data);

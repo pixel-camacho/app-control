@@ -10,6 +10,7 @@ class Refaccion extends BaseController
 	public  function __construct()
 	{
 	 $this->refaccion = model('RefaccionModel');	
+	 $this->session = session();
 	}
 
 	public function index()
@@ -17,13 +18,11 @@ class Refaccion extends BaseController
 		echo "Refacciones padre santo!";
 	}
 
-	
 	public  function getElementById($id = null)
 	{
 		if($id == null):
 			return "Identificador vacio";
 		endif;
-
 		try {
 			$equipo = $this->refaccion->where('id',$id)
 			                               ->where('status', 1)
@@ -46,18 +45,17 @@ class Refaccion extends BaseController
 		try {
 
 			if(!$this->refaccion->insert($new_refaccion)):
-				session()->getFlashdata('error','Ha ocurrido un problema en la operacion');
+				$this->session->setFlashdata('error','Ha ocurrido un problema en la operacion');
 		        return redirect('dashboard');
 			endif;
-			 
-			return redirect('dashboard');
+			    $this->session->setFlashdata('success','Refaccion Agregada');
+				return redirect('dashboard');
 
 		} catch (\Exception $e) {
-			 session()->getFlashdata('error',$e->getMessage());
+			 $this->session->setFlashdata('error',$e->getMessage());
 			 return redirect('dashboard');
 		}
 	}
-
 
 	public function update($id = null)
 	{
@@ -68,12 +66,13 @@ class Refaccion extends BaseController
 		endif;
 		
 		try {
+
 			if(!$this->refaccion->save($data)):
-				session()->getFlashdata('error','Ha ocurrido un problema en la operacion');
+				$this->session->setFlashdata('error','Ha ocurrido un problema en la operacion');
 		        return redirect('dashboard');
 			endif;
-
-			return redirect('dashboard');
+                $this->session->setFlashdata('success','Refaccion Actualizada');
+			    return redirect('dashboard');
 
 		} catch (\Exception $e) {
 			 session()->getFlashdata('error',$e->getMessage());
@@ -89,14 +88,15 @@ class Refaccion extends BaseController
 		try {
 	
 			if(!$this->refaccion->update($id,$data)):
-				session()->getFlashdata('error','Ha ocurrido un problema en la operacion');
+				$this->session->setFlashdata('error','Ha ocurrido un problema en la operacion');
 		        return redirect('dashboard');
 			else:
+				$this->session->serFlashdata('success','Refaccion Eliminada');
 				return redirect('dashboard');
 			endif;
 
 		} catch (\Exception $e) {
-			session()->getFlashdata('error',$e->getMessage());
+			$this->session->setFlashdata('error',$e->getMessage());
 		    return redirect('dashboard');
 		}
 	}

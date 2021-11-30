@@ -8,7 +8,8 @@ class Tonner extends BaseController
 {
     public function __construct()
 	{
-		$this->tonner = model('TonnerModel');
+		$this->tonner  = model('TonnerModel');
+		$this->session = session();
 	}
 
 	public function index()
@@ -44,14 +45,14 @@ class Tonner extends BaseController
 		try {
 
 			if(!$this->tonner->insert($new_tonner)):
-				session()->getFlashdata('error','Ha ocurrido un problema en la operacion');
+				$this->session->setFlashdata('error','Ha ocurrido un problema en la operacion');
 		        return redirect('dashboard');
 			endif;
-			 
-			return redirect('dashboard');
+			   $this->session->setFlashdata('success','Tonner Agregado');
+			   return redirect('dashboard');
 
 		} catch (\Exception $e) {
-			 session()->getFlashdata('error',$e->getMessage());
+			 $this->session->setFlashdata('error',$e->getMessage());
 			 return redirect('dashboard');
 		}
 	}
@@ -64,15 +65,16 @@ class Tonner extends BaseController
 		endif;
 		
 		try {
+
 			if(!$this->tonner->save($data)):
-				session()->getFlashdata('error','Ha ocurrido un problema en la operacion');
+				$this->session->setFlashdata('error','Ha ocurrido un problema en la operacion');
 		        return redirect('dashboard');
 			endif;
-
-			return redirect('dashboard');
+                $this->session->setFlashdata('success','Tonner Actualizado');
+			    return redirect('dashboard');
 
 		} catch (\Exception $e) {
-			 session()->getFlashdata('error',$e->getMessage());
+			 $this->session->setFlashdata('error',$e->getMessage());
 			 return redirect('dashboard');
 		}
 	}
@@ -85,14 +87,15 @@ class Tonner extends BaseController
 		try {
 	
 			if(!$this->tonner->update($id,$data)):
-				session()->getFlashdata('error','Ha ocurrido un problema en la operacion');
+				$this->session->setFlashdata('error','Ha ocurrido un problema en la operacion');
 		        return redirect('dashboard');
 			else:
+				$this->session->setFlashdata('success','Tonner Eliminado');
 				return redirect('dashboard');
 			endif;
 
 		} catch (\Exception $e) {
-			session()->getFlashdata('error',$e->getMessage());
+			$this->session->setFlashdata('error',$e->getMessage());
 		    return redirect('dashboard');
 		}
 	}
