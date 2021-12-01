@@ -8,7 +8,7 @@
 </head>
 <style>
     table{
-        width: 95%;
+        width: 100%;
         margin: 0 auto;
     }
     caption{
@@ -26,6 +26,7 @@
         padding: 5px;
         background: #ededed;
         color: #3d3d3d;
+        font-size: 14px;
     }
     .total{
         text-align: center;

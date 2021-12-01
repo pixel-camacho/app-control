@@ -1,7 +1,7 @@
 <?= $this->include('Componentes/sidebar')  ?>
 <style>
  .card{
-     height: 350px;
+     height: 380px;
  }
  .card b,.card span{
      display: block;
@@ -13,8 +13,19 @@
       display: grid;
       gap: 1rem;
       grid-auto-rows: 24rem;
-      grid-template-columns: repeat(auto-fill, minmax(14rem,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(15rem,1fr));
       padding: 12px;
+}
+
+.btn-delete{
+    display: block;
+    width: 70%;
+    background: #333;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    margin: 14px auto;
+    border-radius: 4px;
 }
 
 </style>
@@ -38,7 +49,6 @@
 
     <div class="report-form">
         <form action="Reports/generate" method="post">
-
         <label for="catalogo">Catalogo</label>
             <select name="catalogo" required="true"  >
                 <option value=" ">* Selecciona catalogo</option>
@@ -60,19 +70,23 @@
 
     <div class="contenedor-tarjetas" id="cards">
 
-<?php for($i = 0; $i < 10; $i++): ?>
+<?php foreach($reports as $report): ?>
     <div class="card">
-          <a  onclick="window.open('.pdf', '_blank')">
+          <a  onclick="window.open('<?= $report['path'] ?>' ,'_blank')">
           <img src="assets/img/reporte.png" alt="imagen">
           <div class="informacion">
           <b>Fecha de creacion:</b>
-          <span>2021-12-01</span>
+          <span><?= $report['fecha_creacion'] ?></span>
           <b>Catalogo:</b>
-          <span>Multifuncional</span>
+          <span><?= $report['catalogo'] ?></span>
           </div>
           </a>
+          <form action="Reports/delete" method="post">
+              <input type="hidden" name="id" value="<?= $report['id'] ?>">
+              <input type="submit" value="Eliminar" class="btn-delete">
+          </form>
     </div>
-<?php endfor; ?>
+<?php endforeach; ?>
 
     </div>
 </div>

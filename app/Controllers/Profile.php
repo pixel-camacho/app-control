@@ -23,7 +23,7 @@ class Profile extends BaseController
 		
 		$dataForm = $_POST;
 		//$file = $_FILES['image'];
-		$file = $this->request->getFiles();
-		var_dump($file);
+		//$file = $this->request->getFiles();
+		var_dump($dataForm);
 	}
 }
