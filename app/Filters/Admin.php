@@ -6,14 +6,14 @@ use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
-class IsAdmin implements FilterInterface
+class Admin implements FilterInterface
 {
 	
 	public function before(RequestInterface $request, $arguments = null)
 	{
-		if(session()->get('role') == 'admin')
+		if(session()->get('role') != 'admin')
 		{
-			$this->session->setFlashdata('success','Eres administrador n.n');
+			session()->setFlashdata('warning','No tiene permisos par realizar esta operacion');
 			return redirect('dashboard');
 		}
 	}

@@ -39,19 +39,19 @@
     <thead>
         <tr>
             <th>#</th>
-            <?php if(isset($equipos[0]['pieza'])):?>
+            <?php if(isset($equipos[0]->pieza)):?>
             <th>Pieza</th>
             <?php endif; ?>
 
-            <?php if(isset($equipos[0]['descripcion'])):?>
+            <?php if(isset($equipos[0]->descripcion)):?>
             <th>Descripcion</th>
             <?php endif; ?>
 
-            <?php if(isset($equipos[0]['pieza']) || isset($equipos[0]['descripcion'])):?>
+            <?php if(isset($equipos[0]->pieza) || isset($equipos[0]->descripcion)):?>
             <th colspan="2" >multifuncional</th>
             <?php endif; ?>
 
-            <?php if(isset($equipos[0]['serie'])):?>
+            <?php if(isset($equipos[0]->serie)):?>
             <th>Marca</th>
             <th>Modelo</th>
             <?php endif; ?>
@@ -65,25 +65,25 @@
         <tr>
             <td><?= $index ?></td>
 
-            <?php if(isset($equipo['pieza'])): ?>
-            <td><?= $equipo['pieza'] ?></td>
+            <?php if(isset($equipo->pieza)): ?>
+            <td><?= $equipo->pieza ?></td>
             <?php endif; ?>
 
-            <?php if(isset($equipo['descripcion'])): ?>
-            <td><?= $equipo['descripcion'] ?></td>
+            <?php if(isset($equipo->descripcion)): ?>
+            <td><?= $equipo->descripcion ?></td>
             <?php endif; ?>
 
-            <?php  if(isset($equipo['pieza']) || isset($equipo['descripcion'])): ?>
-                <td colspan="2"><?php  echo  $equipo['marca'].' '.$equipo['modelo'] ?></td>
+            <?php  if(isset($equipo->pieza) || isset($equipo->descripcion)): ?>
+                <td colspan="2"><?php  echo  $equipo->marca.' '.$equipo->modelo ?></td>
             <?php endif; ?>
 
-            <?php  if(isset($equipo['serie'])): ?>
-            <td><?= $equipo['marca'] ?></td>
-            <td><?= $equipo['modelo'] ?></td>
+            <?php  if(isset($equipo->serie)): ?>
+            <td><?= $equipo->marca ?></td>
+            <td><?= $equipo->modelo ?></td>
             <?php endif; ?>
 
-            <td><?= $equipo['cantidad'] ?></td>
-            <?php $total_elementos += (int)$equipo['cantidad']; ?>
+            <td><?= $equipo->cantidad ?></td>
+            <?php $total_elementos += (int)$equipo->cantidad; ?>
         </tr>
         <?php endforeach; ?>
     

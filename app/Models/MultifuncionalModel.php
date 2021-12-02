@@ -23,10 +23,10 @@ class MultifuncionalModel extends Model
 
 	public function getAllComputers(){
 
-		$builder = $this->db->table('multifuncional m');
-		$builder->select('m.id,m.marca,m.modelo,m.cantidad,m.serie');
-		$builder->where('m.status', 1);
-		$result = $builder->get()->getResultArray();
+		$builder = $this->db->table('multifuncional');
+		$builder->select('id,marca,modelo,cantidad,serie');
+		$builder->where('status', 1);
+		$result = $builder->get()->getResult();
 
 		return $result == null ? false : $result;
 	}

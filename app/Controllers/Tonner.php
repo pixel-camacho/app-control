@@ -79,9 +79,9 @@ class Tonner extends BaseController
 		}
 	}
 
-	public function delete($id = null)
+	public function delete()
 	{
-		$id = $this->request->getVar('id');
+		$id = $_POST['id'];
 		$data = ['status' => 0, 'fecha_baja' => date('Y-m-d h:i:s')];
 
 		try {

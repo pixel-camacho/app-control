@@ -32,7 +32,7 @@ class TonnerModel extends Model
 		$builder->select('t.id, t.descripcion, t.cantidad, t.multifuncional_id AS multifuncional, m.marca, m.modelo');
 		$builder->join('multifuncional m', 'm.id = t.multifuncional_id');
 		$builder->where('t.status', 1);
-		$result = $builder->get()->getResultArray();
+		$result = $builder->get()->getResult();
 
 		return $result == null ? false : $result;
 	}

@@ -80,9 +80,9 @@ class Refaccion extends BaseController
 		}
 	}
 
-	public  function delete($id = null)
+	public  function delete()
 	{
-		$id = $this->request->getVar('id');
+		$id = $_POST['id'];
 		$data = ['status' => 0, 'fecha_baja' => date('Y-m-d h:i:s')];
 
 		try {
@@ -91,7 +91,7 @@ class Refaccion extends BaseController
 				$this->session->setFlashdata('error','Ha ocurrido un problema en la operacion');
 		        return redirect('dashboard');
 			else:
-				$this->session->serFlashdata('success','Refaccion Eliminada');
+				$this->session->setFlashdata('success','Refaccion Eliminada');
 				return redirect('dashboard');
 			endif;
 

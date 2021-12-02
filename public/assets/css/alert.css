@@ -1,6 +1,7 @@
 .errors ul,
 .error,
 .success,
+.warning,
 .validations{
     position: absolute;
     width: 350px;
@@ -18,6 +19,11 @@
 
 .success {
    background-color: #04AA6D;
+}
+
+.warning{
+    background-color: #fcfcbf;
+    color: #333;
 }
 
 

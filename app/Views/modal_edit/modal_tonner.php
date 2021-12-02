@@ -12,7 +12,7 @@
             <label for="Multifuncional">Multifuncional</label>
             <select name="multifuncional_id" id="multifuncional_tonner_edit">
                 <?php foreach($equipos as $equipo):?>
-                   <?= '<option value='.$equipo['id'].'>'.$equipo['marca'].' '.$equipo['modelo'].'</option>' ?>
+                   <?= '<option value='.$equipo->id.'>'.$equipo->marca.' '.$equipo->modelo.'</option>' ?>
                 <?php endforeach;?>
             </select>
 

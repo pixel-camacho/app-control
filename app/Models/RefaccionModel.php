@@ -32,7 +32,7 @@ class RefaccionModel extends Model
 		$builder->select('r.id,r.pieza,r.cantidad,r.multifuncional_id AS multifuncional, m.marca , m.modelo');
 		$builder->join('multifuncional m','m.id = r.multifuncional_id');
 		$builder->where('r.status',1);
-		$result = $builder->get()->getResultArray();
+		$result = $builder->get()->getResult();
 
 		return $result == null ? false : $result;
 	}

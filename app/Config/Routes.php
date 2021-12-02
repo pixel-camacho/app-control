@@ -36,9 +36,13 @@ $routes->match(['get','post'],'/', 'Users::index');
 $routes->match(['get','post'],'register', 'Users::register');
 
 $routes->get('dashboard', 'Dashboard::index', ['filter' => 'auth']);
-$routes->get('profile', 'Profile::index', ['filter' => 'auth']);
-$routes->get('reports', 'Reports::index', ['filter' => 'auth']);
+$routes->get('profile', 'Profile::index', ['filter' => 'admin'], ['filter' => 'auth']);
+$routes->get('reports', 'Reports::index', ['filter' => 'admin'], ['filter' => 'auth']);
 
+//MULTIFUNCIONAL FILTER
+$routes->post('multifuncional/create', 'Multifuncional::create', ['filter' => 'admin']);
+$routes->post('multifuncional/update', 'Multifuncional::update', ['filter' => 'admin']);
+$routes->post('multifuncional/delete' ,'Multifuncional::delete',['filter' => 'admin']);
 
 
 /*
